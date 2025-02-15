@@ -14,12 +14,12 @@ const images = [img1, img2, img3, img4];
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
 
-  // chat said to edit the title this way
+  // Update document title
   useEffect(() => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // Fade-in 
+  // Fade-in effect
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -30,29 +30,36 @@ const Home = () => {
 
   return (
     <Container className="home-container">
-      {/* text area*/}
-      <div className="text-container">
-        <h1 className="home-title">SeedLink</h1>
-        <p className="home-description">
-          Help save endangered plants by planting seeds in your local area.
-        </p>
-      </div>
+      {/* ✅ Row to hold text and image grid side by side */}
+      <Row className="align-items-center">
+        
+        {/* ✅ Image Grid (Left) */}
+        <Col md={4} className="d-flex justify-content-center">
+          <Container className="image-container">
+            <Row className="image-grid">
+              {images.map((img, index) => (
+                <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
+                  <Image
+                    src={img}
+                    alt={`Plant ${index + 1}`}
+                    className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
+                    rounded
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </Col>
 
-      {/* bootstrap works  */}
-      <Container className="image-container">
-        <Row className="image-grid">
-          {images.map((img, index) => (
-            <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
-              <Image
-                src={img}
-                alt={`Plant ${index + 1}`}
-                className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
-                rounded
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
+        {/* ✅ Text Section (Right) */}
+        <Col md={8} className="text-container">
+          <h1 className="home-title">SeedLink</h1>
+          <p className="home-description">
+            Help save endangered plants by planting seeds in your local area.
+          </p>
+        </Col>
+
+      </Row>
     </Container>
   );
 };

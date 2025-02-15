@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #4CAF50;
+    background-color: #2C5F2D;
     color: white;
 }
 
@@ -46,4 +46,7 @@
 
 .login-btn:hover {
     background-color: #f8f9fa;
+}
+body {
+    background-color: #F5F1E3;
 }
