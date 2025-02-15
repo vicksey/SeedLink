@@ -32,26 +32,29 @@
 
 
 
-/* ✅ Image grid positioned in the top-left corner under the navbar */
+/* finally top left */
 .image-grid {
-    position: absolute; /* Moves it independently */
-    top: 70px; /* Adjust this value based on your navbar's height */
-    left: 10px; /* Aligns it to the left */
+    position: absolute; /* Moves  independently debating it */
+    /* top: 70px;  */
+    /* above would be based on nav bar's height */
     
-    display: grid; /* Enables grid layout */
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 15px; /* Space between images */
+    /* Enables grid layout, Two columnss, then image Spacer */
+    display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; 
 
-    background: rgba(255, 255, 255, 0.8); /* Optional: Light background */
-    padding: 10px; /* Adds space inside */
-    border-radius: 8px; /* Optional: Rounded corners */
+    /* background: rgba(255, 255, 255, 0.8);  */
+    /* padding: 10px;  */
+
+    /* curved corners */
+    border-radius: 8px; 
 }
 
-/* ✅ Image fade-in effect */
+/* FADE IN */
 .image {
-    width: 100px; /* Adjust image size */
+    width: 15rem; 
     height: auto;
-    border-radius: 10px; /* Optional: Rounded corners */
+    border-radius: 10px; 
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); /* Optional: Shadow effect */
     opacity: 0;
     transition: opacity 1s ease-in;
@@ -61,7 +64,7 @@
     opacity: 1;
 }
 
-/* ✅ Responsive adjustments */
+/* tried to be resposiv */
 @media (max-width: 768px) {
     .image-grid {
         grid-template-columns: repeat(1, 1fr); /* Stack images in one column */
@@ -70,7 +73,8 @@
     }
 }
 
-/* ✅ Extra section (unchanged) */
+
+/* Extra section unchanged */
 .left-top-corner {
     margin-top: 20px;
     font-size: 16px;

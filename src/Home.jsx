@@ -19,7 +19,7 @@ const Home = () => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // Fade-in effect
+  // Fade in
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -30,15 +30,26 @@ const Home = () => {
 
   return (
     <Container className="home-container">
-      {/* ✅ Text Section */}
+
+
+<Container className="title">
+  <Row>
+<h1 className="home-title">SeedLink</h1></Row>
+
+</Container>
+
+      {/* text */}
       <div className="text-container">
-        <h1 className="home-title">SeedLink</h1>
+     
         <p className="home-description">
           Help save endangered plants by planting seeds in your local area.
         </p>
       </div>
 
-      {/* ✅ Image Grid Inside Its Own Container */}
+
+
+
+      {/* image  */}
       <Container className="image-container">
         <Row className="image-grid">
           {images.map((img, index) => (
@@ -53,6 +64,10 @@ const Home = () => {
           ))}
         </Row>
       </Container>
+
+
+
+
     </Container>
   );
 };
