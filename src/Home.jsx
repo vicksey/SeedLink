@@ -75,9 +75,9 @@
 
 
 
-
 import React, { useState, useEffect } from "react";
 import "./Home.css";  
+
 
 // Import images
 import img1 from "./assets/check_name_1.jpg";
@@ -90,31 +90,31 @@ const images = [img1, img2, img3, img4];
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
 
-  // Change the document title when the component loads
+  // when i used chat it recomeded this effect ig
   useEffect(() => {
     document.title = "SeedLink - Home";
   }, []);
 
-
-
-  // Fades in  images one by one
+  // fade in
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
         setVisibleImages((prev) => [...prev, index]);
-      }, index * 1000); 
+      }, index * 1000);
     });
   }, []);
 
   return (
     <div className="home-container">
-      {/* Title and Description */}
-      <h1 className="home-title">SeedLink</h1>
-      <p className="home-description">
-        Help save endangered plants by planting seeds in your local area.
-      </p>
+      {/* text area */}
+      <div className="text-container">
+        <h1 className="home-title">SeedLink</h1>
+        <p className="home-description">
+          Help save endangered plants by planting seeds in your local area.
+        </p>
+      </div>
 
-      {/* Fade-in Image Grid */}
+      {/* tyried to align images*/}
       <div className="image-grid">
         {images.map((img, index) => (
           <img
@@ -125,9 +125,6 @@ const Home = () => {
           />
         ))}
       </div>
-
-      {/* Extra Content */}
-      <div className="left-top-corner">Hello</div>
     </div>
   );
 };
