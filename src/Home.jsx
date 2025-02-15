@@ -30,36 +30,29 @@ const Home = () => {
 
   return (
     <Container className="home-container">
-      {/* ✅ Row to hold text and image grid side by side */}
-      <Row className="align-items-center">
-        
-        {/* ✅ Image Grid (Left) */}
-        <Col md={4} className="d-flex justify-content-center">
-          <Container className="image-container">
-            <Row className="image-grid">
-              {images.map((img, index) => (
-                <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
-                  <Image
-                    src={img}
-                    alt={`Plant ${index + 1}`}
-                    className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
-                    rounded
-                  />
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </Col>
+      {/* ✅ Text Section */}
+      <div className="text-container">
+        <h1 className="home-title">SeedLink</h1>
+        <p className="home-description">
+          Help save endangered plants by planting seeds in your local area.
+        </p>
+      </div>
 
-        {/* ✅ Text Section (Right) */}
-        <Col md={8} className="text-container">
-          <h1 className="home-title">SeedLink</h1>
-          <p className="home-description">
-            Help save endangered plants by planting seeds in your local area.
-          </p>
-        </Col>
-
-      </Row>
+      {/* ✅ Image Grid Inside Its Own Container */}
+      <Container className="image-container">
+        <Row className="image-grid">
+          {images.map((img, index) => (
+            <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
+              <Image
+                src={img}
+                alt={`Plant ${index + 1}`}
+                className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
+                rounded
+              />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </Container>
   );
 };

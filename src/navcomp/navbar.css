@@ -7,6 +7,10 @@
     background-color: #2C5F2D;
     color: white;
 }
+/* past color #4CAF50 */
+
+
+
 
 /* Logo */
 .logo {
@@ -36,17 +40,18 @@
 }
 
 /* Login Button */
+
+
 .login-btn {
     padding: 8px 15px;
     border-radius: 5px;
-    background-color: white;
-    color: #4CAF50;
+    background-color: #2f3b47;
+    color: #2C5F2D;
     font-weight: bold;
 }
 
+
+/* not quite a good color will change  */
 .login-btn:hover {
-    background-color: #f8f9fa;
-}
-body {
-    background-color: #F5F1E3;
+    background-color: #97ad4d;
 }
