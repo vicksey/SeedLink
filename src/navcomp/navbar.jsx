@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="logo">SeedLink 🌱</div>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/map">Map</Link></li>
+        <li><Link to="/dashboard">Dashboard</Link></li>
         <li><Link to="/community">Community</Link></li>
         <li><Link to="/login" className="login-btn">Login</Link></li>
       </ul>
