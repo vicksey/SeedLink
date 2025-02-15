@@ -1,12 +1,14 @@
 
+@import "tailwindcss";
 
 body {
-  background-color: #000000;
+  background-color: #F5F1E3;
   color: rgb(192, 175, 175);
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
 }
+
 
 
 

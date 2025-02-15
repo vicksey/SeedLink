@@ -1,5 +1,11 @@
 /* Center content on the page */
 
+/* @import "tailwindcss"; 
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 
 .home-container {
     display: flex;
@@ -10,6 +16,8 @@
     width: 100%; /* Ensures full width */
     text-align: center;
 }
+
+
 
 /* Make title bold and large */
 .home-title {
@@ -24,3 +32,49 @@
     color: #ccc;
     max-width: 600px; /* Limits width for readability */
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Image grid */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    position: relative; 
+  }
+  
+  /* Image fade-in effect */
+  .image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 1s ease-in;
+  }
+  
+  .image.visible {
+    opacity: 1;
+  }
+  
+  /* Extra section */
+  .left-top-corner {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
