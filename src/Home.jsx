@@ -1,83 +1,7 @@
-// import { useEffect } from "react";
-// import "./Home.css"; 
-
-
-// const Home = () => {
-//   // Change the browser tab title
-//     useEffect(() => {
-//     document.title = "SeedLink - Home";
-// }, []);
-
-//     return (
-//     <div id="tile"style={{ textAlign: "top"}}>
-//         <h1>SeedLink</h1>
-//         <p>Help save endangered plants by planting seeds in your local area.</p>
-//     </div>
-// );
-// };
-
-// export default Home;
-
-
-
-
-
-
-
-
-
-
-// import { useEffect } from "react";
-// import "./Home.css";  
-
-
-// import img1 from "./assets/check_name_1.jpg";
-// import img2 from "../assets/images/image2.jpg";
-// import img3 from "../assets/images/image3.jpg";
-// import img4 from "../assets/images/image4.jpg";
-
-
-
-// const Home = () => {
-//   useEffect(() => {
-//     document.title = "SeedLink - Home";
-//   }, []);
-
-//   return (
-//     <div className="home-container">
-//       <h1 className="home-title">SeedLink</h1>
-//       <p className="home-description">
-//         Help save endangered plants by planting seeds in your local area.
-//       </p>
-
-
-//       <h1 class="text-3xl font-bold underline">
-//     Hello world!
-//   </h1>
-
-//       <div className="left-top-corner">Hello</div>
-//     </div>
-
-
-
-
-
-
-//   );
-// };
-
-// export default Home;
-
-
-
-
-
-
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
 import "./Home.css";  
-
 
 // Import images
 import img1 from "./assets/check_name_1.jpg";
@@ -90,12 +14,12 @@ const images = [img1, img2, img3, img4];
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
 
-  // when i used chat it recomeded this effect ig
+  // chat said to edit the title this way
   useEffect(() => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // fade in
+  // Fade-in 
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -105,8 +29,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      {/* text area */}
+    <Container className="home-container">
+      {/* text area*/}
       <div className="text-container">
         <h1 className="home-title">SeedLink</h1>
         <p className="home-description">
@@ -114,18 +38,22 @@ const Home = () => {
         </p>
       </div>
 
-      {/* tyried to align images*/}
-      <div className="image-grid">
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Plant ${index + 1}`}
-            className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
-          />
-        ))}
-      </div>
-    </div>
+      {/* bootstrap works  */}
+      <Container className="image-container">
+        <Row className="image-grid">
+          {images.map((img, index) => (
+            <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
+              <Image
+                src={img}
+                alt={`Plant ${index + 1}`}
+                className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
+                rounded
+              />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </Container>
   );
 };
 

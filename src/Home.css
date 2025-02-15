@@ -1,10 +1,3 @@
-/* Center content on the page */
-
-/* @import "tailwindcss"; 
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities; */
 
 
 .home-container {
@@ -32,22 +25,6 @@
     color: #ccc;
     max-width: 600px; /* Limits width for readability */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -86,16 +63,16 @@
     opacity: 1;
 }
 
-/* tyring to make it reponsive going to use bootstrpa instead  */
+/* ✅ Responsive adjustments */
 @media (max-width: 768px) {
     .image-grid {
-        grid-template-columns: repeat(1, 1fr); /* Sstack img in col */
+        grid-template-columns: repeat(1, 1fr); /* Stack images in one column */
         left: 5px;
-        top: 60px; /* suppsoed to adjust  */
+        top: 60px; /* Adjust for mobile navbar */
     }
 }
 
-/* extra */
+/* ✅ Extra section (unchanged) */
 .left-top-corner {
     margin-top: 20px;
     font-size: 16px;
