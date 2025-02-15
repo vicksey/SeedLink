@@ -1,0 +1,26 @@
+/* Center content on the page */
+
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    
+    height: 100vh; /* Full height of viewport */
+    width: 100%; /* Ensures full width */
+    text-align: center;
+}
+
+/* Make title bold and large */
+.home-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px; /* Spacing between title and paragraph */
+}
+
+/* Style description */
+.home-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 600px; /* Limits width for readability */
+}
