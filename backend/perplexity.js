@@ -1,11 +1,13 @@
-require('dotenv').config();
-const fetch = require('node-fetch');
+import dotenv from 'dotenv';
+import fetch from 'node-fetch';
+
+dotenv.config();
 
 const PERPLEXITY_API_URL = 'https://api.perplexity.ai/chat/completions';
 const API_KEY = process.env.PERPLEXITY_API_KEY;
 
 async function getAgriculturalReport(location, range) {
-    const prompt = `Give me a detailed report of ${location}'s agricultural climate for analysis later of the last ${range} years.`;
+    const prompt = `Give me a highly detailed report of ${location}'s agricultural climate and natural crops so that it can be analyzed for future growth efforts in the last ${range} years.`;
 
     const options = {
         method: 'POST',
@@ -16,12 +18,12 @@ async function getAgriculturalReport(location, range) {
         body: JSON.stringify({
             model: "sonar",
             messages: [
-                { role: "system", content: "Be precise and concise." },
+                { role: "system", content: "Be extensive and detailed." },
                 { role: "user", content: prompt }
             ],
-            max_tokens: 2500,
-            temperature: 0.2,
-            top_p: 0.5,
+            max_tokens: 10000,
+            temperature: 0.7,
+            top_p: 0.9,
             stream: false
         })
     };
@@ -31,8 +33,7 @@ async function getAgriculturalReport(location, range) {
         const data = await response.json();
 
         if (response.ok && data.choices) {
-            const report = data.choices[0].message.content; 
-            return report;
+            return data.choices[0].message.content;
         } else {
             throw new Error(`API Error: ${data.error || "Unknown error"}`);
         }
@@ -42,4 +43,4 @@ async function getAgriculturalReport(location, range) {
     }
 }
 
-module.exports = { getAgriculturalReport };
+export default getAgriculturalReport;
