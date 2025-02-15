@@ -5,7 +5,7 @@ SeedLink is a platform designed to combat plant extinction by encouraging indivi
 
 ## Features
 
-### User Experience
+### User Experienc
 - **Location-Based Planting Recommendations**: Users receive AI-driven recommendations for the best plants to grow based on their location and environmental conditions.
 - **Incentives for Participation**:
   - **Emotional**: Sponsor or gift a tree to loved ones.
