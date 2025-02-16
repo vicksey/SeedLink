@@ -1,78 +1,30 @@
-body {
-    background-color: #cdbba3; /* A light greenish color */
-    margin: 0;
-    padding: 0; 
-}
-.dashboard-container {
-    padding: 20px;
-    max-width: 60%;
-    margin: 130px auto;
-    background-color: #F9F9F9; /* Light background for the container */
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border: 0px solid #A2C78C; /* Light green border */
-  }
-  
-  /* Media query for small to medium screens */
-@media (max-width: 768px) {
-    .dashboard-container {
-        max-width: 90%; /* Adjust to 90% on small to medium screens */
-    }
+.login-container {
+  text-align: center;
+  margin-top: 50px;
 }
 
-/* Media query for very small screens */
-@media (max-width: 480px) {
-    .dashboard-container {
-        max-width: 90%; /* Ensure it doesn't exceed 90% on very small screens */
-    }
+.google-login-btn,
+.logout-btn {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-  .dashboard-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #3A7A3A; /* Dark green for the title */
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #2D4739; /* Dark green text for labels */
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #8B5E3C; /* Brown border */
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #FFFFFF; /* White input background */
-  }
-  
-  .search-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #3A7A3A; /* Dark green button */
-    color: #FFFFFF; /* White text */
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .search-button:hover {
-    background-color: #2D4739; /* Darker green on hover */
-  }
-  
-  .result {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #2D4739; /* Dark green for results text */
-  }
-  
+.google-login-btn:hover,
+.logout-btn:hover {
+  background-color: #357ae8;
+}
+
+.profile {
+  margin-top: 20px;
+}
+
+.profile img {
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}

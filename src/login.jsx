@@ -1,104 +1,56 @@
-import React, { useState } from "react";
-import "./Dashboard.css";
-import Slideshow from "./Slideshow"; 
+import { useState, useEffect } from "react";
+import { useGoogleLogin, googleLogout } from "@react-oauth/google";
+import axios from "axios";
 
-const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
-const months = [
-  "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
-];
-const days = Array.from({ length: 31 }, (_, i) => i + 1);
+const Login = () => {
+  const [user, setUser] = useState<any>(null);
+  const [profile, setProfile] = useState<any>(null);
 
-const Dashboard = () => {
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
-  const [city, setCity] = useState("");
+  const login = useGoogleLogin({
+    onSuccess: (response) => setUser(response),
+    onError: (error) => console.error("Login Failed:", error),
+  });
 
-  const [submittedData, setSubmittedData] = useState(null);
+  useEffect(() => {
+    if (user && user.access_token) {
+      axios
+        .get("https://www.googleapis.com/oauth2/v1/userinfo", {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: "application/json",
+          },
+        })
+        .then((res) => {
+          setProfile(res.data);
+        })
+        .catch((err) => console.error("Error fetching user profile:", err));
+    }
+  }, [user]);
 
-  const handleMonthChange = (e) => {
-    setMonth(e.target.value);
-  };
-
-  const handleDayChange = (e) => {
-    setDay(e.target.value);
-  };
-
-  const handleCityChange = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleSearch = () => {
-    const searchData = {
-      month,
-      day,
-      city,
-    };
-    setSubmittedData(searchData);
-    console.log("Search Data:", searchData);
+  const logOut = () => {
+    googleLogout();
+    setProfile(null);
   };
 
   return (
-    <div className="dashboard-container">
-      <h1 className="dashboard-title">User Dashboard</h1>
-
-      <div className="input-group">
-        <label htmlFor="month" className="input-label">Select Month:</label>
-        <select
-          id="month"
-          className="input-field"
-          value={month}
-          onChange={handleMonthChange}
-        >
-          <option value="" disabled>Select a month</option>
-          {months.map((m, index) => (
-            <option key={index} value={m}>{m}</option>
-          ))}
-        </select>
-      </div>
-
-      <div className="input-group">
-        <label htmlFor="day" className="input-label">Select Day:</label>
-        <select
-          id="day"
-          className="input-field"
-          value={day}
-          onChange={handleDayChange}
-        >
-          <option value="" disabled>Select a day</option>
-          {days.map((d) => (
-            <option key={d} value={d}>{d}</option>
-          ))}
-        </select>
-      </div>
-
-      <div className="input-group">
-        <label htmlFor="city" className="input-label">Select City:</label>
-        <select
-          id="city"
-          className="input-field"
-          value={city}
-          onChange={handleCityChange}
-        >
-          <option value="" disabled>Select a city</option>
-          {cities.map((c, index) => (
-            <option key={index} value={c}>{c}</option>
-          ))}
-        </select>
-      </div>
-
-      <button className="search-button" onClick={handleSearch}>Search</button>
-
-      {submittedData && (
-        <div className="results">
-          <h2>User Input Results:</h2>
-          <p>Month: {submittedData.month}</p>
-          <p>Day: {submittedData.day}</p>
-          <p>City: {submittedData.city}</p>
+    <div className="login-container">
+      <h2>Login with Google</h2>
+      {!profile ? (
+        <button onClick={() => login()} className="google-login-btn">
+          Sign in with Google
+        </button>
+      ) : (
+        <div className="profile">
+          <img src={profile.picture} alt="User Profile" />
+          <h3>Welcome, {profile.name}</h3>
+          <p>Email: {profile.email}</p>
+          <button onClick={logOut} className="logout-btn">
+            Logout
+          </button>
         </div>
       )}
-     <Slideshow />
     </div>
   );
 };
 
-export default Dashboard;
+export default Login;
