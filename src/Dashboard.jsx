@@ -4,7 +4,50 @@ import Slideshow from "./Slideshow";
 
 const API_BASE_URL = "http://localhost:4000";
 
-const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Austin", "Dallas"];
+const counties = [
+  "Los Angeles County, CA", "Cook County, IL", "Harris County, TX", "Maricopa County, AZ", "San Diego County, CA",
+  "Orange County, CA", "Miami-Dade County, FL", "Dallas County, TX", "Kings County, NY", "Riverside County, CA",
+  "Queens County, NY", "Clark County, NV", "King County, WA", "San Bernardino County, CA", "Tarrant County, TX",
+  "Bexar County, TX", "Broward County, FL", "Santa Clara County, CA", "Wayne County, MI", "Alameda County, CA",
+  "Middlesex County, MA", "Philadelphia County, PA", "Suffolk County, NY", "Sacramento County, CA", "Bronx County, NY",
+  "Hillsborough County, FL", "Nassau County, NY", "Cuyahoga County, OH", "Palm Beach County, FL", "Allegheny County, PA",
+  "Oakland County, MI", "Orange County, FL", "Hennepin County, MN", "Franklin County, OH", "Fairfax County, VA",
+  "Travis County, TX", "Salt Lake County, UT", "Fulton County, GA", "Mecklenburg County, NC", "Montgomery County, MD",
+  "Pima County, AZ", "Honolulu County, HI", "Westchester County, NY", "Milwaukee County, WI", "Wake County, NC",
+  "Fresno County, CA", "Shelby County, TN", "Fairfield County, CT", "DuPage County, IL", "Erie County, NY",
+  "Pinellas County, FL", "Marion County, IN", "Trumbull County, OH", "Hartford County, CT", "Bergen County, NJ",
+  "Prince George's County, MD", "Monroe County, NY", "Duval County, FL", "Gwinnett County, GA", "Ventura County, CA",
+  "Collin County, TX", "San Mateo County, CA", "St. Louis County, MO", "El Paso County, TX", "Washington County, OR",
+  "Davidson County, TN", "Middlesex County, NJ", "Baltimore County, MD", "Oklahoma County, OK", "Multnomah County, OR",
+  "Jefferson County, KY", "Providence County, RI", "Denton County, TX", "Hamilton County, OH", "Essex County, NJ",
+  "Hudson County, NJ", "Fort Bend County, TX", "Jefferson County, CO", "Polk County, IA", "Cobb County, GA",
+  "Bernalillo County, NM", "Jackson County, MO", "Anchorage Municipality, AK", "New Haven County, CT", "Macon County, IL",
+  "Snohomish County, WA", "DeKalb County, GA", "Chester County, PA", "Jefferson County, AL", "Tulsa County, OK",
+  "Kent County, MI", "Montgomery County, OH", "Summit County, OH", "Dane County, WI", "Bucks County, PA",
+  "York County, PA", "Ocean County, NJ", "Montgomery County, PA", "New Castle County, DE", "Worcester County, MA",
+  "El Paso County, CO", "Lancaster County, PA", "Lee County, FL", "Richmond County, NY", "Monmouth County, NJ",
+  "Winnebago County, IL", "Leon County, FL", "Knox County, TN", "Johnson County, KS", "Washoe County, NV",
+  "Davis County, UT", "Chittenden County, VT", "Plymouth County, MA", "Loudoun County, VA", "Boone County, MO",
+  "Santa Barbara County, CA", "Spokane County, WA", "Reno County, KS", "Buncombe County, NC", "Garfield County, CO",
+  "Whatcom County, WA", "Peoria County, IL", "Adams County, CO", "Rockland County, NY", "Stanislaus County, CA",
+  "Madison County, AL", "Sedgwick County, KS", "Onondaga County, NY", "Dakota County, MN", "Tulare County, CA",
+  "Passaic County, NJ", "Delaware County, OH", "Bristol County, MA", "Guilford County, NC", "Madison County, IL",
+  "Hidalgo County, TX", "Maui County, HI", "Kanawha County, WV", "Lubbock County, TX", "Lucas County, OH",
+  "Ramsey County, MN", "Deschutes County, OR", "Mahoning County, OH", "Yolo County, CA", "Cumberland County, ME",
+  "Shelby County, AL", "Douglas County, NE", "Alachua County, FL", "Olmsted County, MN", "Racine County, WI",
+  "Washington County, MN", "Clermont County, OH", "Mesa County, CO", "Yavapai County, AZ", "Jefferson Parish, LA",
+  "Oneida County, NY", "Yakima County, WA", "Henrico County, VA", "Ector County, TX", "Placer County, CA",
+  "Dougherty County, GA", "Kern County, CA", "Carroll County, MD", "Boulder County, CO", "Rockingham County, NH",
+  "Forsyth County, GA", "Escambia County, FL", "Brazos County, TX", "Webb County, TX", "Catawba County, NC",
+  "Hall County, GA", "Tuscaloosa County, AL", "Muscogee County, GA", "Lane County, OR", "Collier County, FL",
+  "Moore County, NC", "Bay County, FL", "St. Lucie County, FL", "Camden County, NJ", "McLean County, IL",
+  "Cumberland County, PA", "La Crosse County, WI", "Hernando County, FL", "San Luis Obispo County, CA", "Orange County, NC",
+  "Douglas County, CO", "Roanoke County, VA", "Jefferson County, TX", "Tarrant County, TX", "Clackamas County, OR",
+  "Ada County, ID", "Fayette County, KY", "Citrus County, FL", "Indian River County, FL", "Gaston County, NC",
+  "Williamson County, TN", "Woodbury County, IA", "Shasta County, CA", "St. Clair County, IL", "Monroe County, MI",
+  "Dona Ana County, NM", "Washington County, AR", "Richmond County, GA", "Columbia County, GA", "Greenville County, SC",
+  "Boone County, IL", "Clinton County, NY", "Bay County, MI", "Sebastian County, AR", "Hendricks County, IN"
+];
 const months = [
   "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 ];
@@ -107,7 +150,7 @@ const Dashboard = () => {
         <label htmlFor="city" className="input-label">Select City:</label>
         <select id="city" className="input-field" value={city} onChange={handleCityChange}>
           <option value="" disabled>Select a city</option>
-          {cities.map((c, index) => <option key={index} value={c}>{c}</option>)}
+          {counties.map((c, index) => <option key={index} value={c}>{c}</option>)}
         </select>
       </div>
 
