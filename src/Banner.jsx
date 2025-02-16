@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
-import "./Home.css";  // Import styles
+import "./Home.css";  
 
 
 import banner1 from "./assets/tree_placehooer.png";
@@ -13,7 +13,7 @@ const bannerImages = [banner1, banner2, banner3];
 const Banner = () => {
   const [visibleBanners, setVisibleBanners] = useState([]);
 
-  // Fade-in Effect for Banner
+  // Fade-in Banner
   useEffect(() => {
     bannerImages.forEach((_, index) => {
       setTimeout(() => {

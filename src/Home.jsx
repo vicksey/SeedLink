@@ -3,8 +3,12 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
 import "./Home.css";  
 import Banner from "./Banner"; 
+import Slideshow from "./Slideshow"; 
 
-// Import images
+
+
+
+// images
 import img1 from "./assets/check_name_1.jpg";
 import img2 from "./assets/flower_red.jpg";
 import img3 from "./assets/grays_lily.jpg";
@@ -15,12 +19,12 @@ const images = [img1, img2, img3, img4];
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
 
-  // Update document title
+  // not sure why but it recommended update title
   useEffect(() => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // Fade-in Effect
+  // Fade-in
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -33,7 +37,7 @@ const Home = () => {
 
     <div>
     <Container className="home-container">
-      {/* ✅ Title Section */}
+      {/* title*/}
       <Container className="title">
         <Row className="justify-content-center">
           <Col md={8} className="text-center">
@@ -42,9 +46,9 @@ const Home = () => {
         </Row>
       </Container>
 
-      {/* ✅ Image & Text Row */}
+      {/* Image & Text Row */}
       <Row className="align-items-center mt-4">
-        {/* ✅ Column for Images (Left) */}
+        {/* Column for Images on Left */}
         <Col md={6}>
           <Container className="image-container">
             <Row className="image-grid">
@@ -62,11 +66,11 @@ const Home = () => {
           </Container>
         </Col>
 
-        {/* ✅ Column for Text (Right) */}
+        {/* Column for  Right text */}
         <Col md={6} className="text-container">
           <p className="home-description">
-            🌿 **Do you want to save the world?**  
-            Welcome to **SeedLink**! 🌱 Here, you'll be one step closer to preventing plant extinction.  
+            Do you want to save the world?
+            Welcome to SeedLink!  Here, you'll be one step closer to preventing plant extinction.  
             Join us in making a difference!
           </p>
         </Col>
@@ -75,7 +79,10 @@ const Home = () => {
 
 
       <Banner />
-      
+    
+  
+    <Slideshow />
+  
 </div>
   );
 };
