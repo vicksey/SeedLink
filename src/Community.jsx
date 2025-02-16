@@ -1,31 +1,33 @@
 import React, { useState } from "react";
 import "./Community.css";
-import plantsImage from "./images/plant.png";
+import koki from "./images/Koki'o ke'oke'o.jpg";
+import treeofLife from "./images/TreeofLife.jpg"
+import YellowConeflower from "./images/yellowConeflower.jpg";
 import userProfile from "./images/profilePhoto.png"; // Example profile picture
 import { FaThumbtack } from "react-icons/fa"; // Import pin icon from react-icons
 
 const updates = [
   {
     name: "Alice",
-    plant: "Fern",
-    picture: plantsImage,
-    update: "My fern is thriving after I moved it to a sunnier spot!",
+    plant: "Tree of Life",
+    picture: treeofLife,
+    update: "This resilient plant symbolizes renewal and growth, and my fern is thriving after I moved it to a sunnier spot!",
     comments: [],
     isPinned: false, // New field to track pinned status
   },
   {
     name: "John",
-    plant: "Succulent",
-    picture: plantsImage,
-    update: "The succulent sprouted a new leaf this week!",
+    plant: "Koki'o ke'oke'o",
+    picture: koki,
+    update: "Known for its striking white flowers, my Koki'o ke'oke'o surprised me with a new leaf this week. It’s truly thriving!",
     comments: [],
     isPinned: false,
   },
   {
     name: "Sophia",
-    plant: "Bamboo",
-    picture: "",
-    update: "The bamboo has grown 2 inches taller this month!",
+    plant: "Yellow Coneflower",
+    picture: YellowConeflower,
+    update: "With its vibrant yellow petals, the Yellow Coneflower adds so much life to my garden. This month, my bamboo companion grew 2 inches taller!",
     comments: [],
     isPinned: false,
   }

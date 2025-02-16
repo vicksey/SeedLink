@@ -77,15 +77,28 @@
 }
 
 .community-image {
-    height: 400px; /* Fixed height */
-    width: auto; /* Adjust width while maintaining aspect ratio */
+    max-width: 100%; /* Ensures the image never exceeds the container width */
+    height: auto; /* Maintains the aspect ratio */
     border-radius: 10px;
     margin-bottom: 10px;
-    object-fit: cover; /* Ensures the image fills the container properly without distortion */
-    display: block; /* Makes the image behave like a block element */
+    object-fit: cover; /* Ensures the image scales properly without distortion */
+    display: block; /* Centers the image horizontally */
     margin-left: auto; /* Centers the image horizontally */
     margin-right: auto; /* Centers the image horizontally */
 }
+
+@media (max-width: 768px) {
+    .community-image {
+        max-width: 100%; /* Adjusts for medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .community-image {
+        max-width: 100%; /* Adjusts for very small screens */
+    }
+}
+
 
 .comment-input {
     width: 95%;
