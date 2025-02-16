@@ -46,7 +46,6 @@ const Home = () => {
         </Row>
       </Container>
 
-
       {/* Image & Text Row */}
       <Row className="d-flex  justify-content-center mt-4">
         {/* Column for Images on Left */}
@@ -70,6 +69,7 @@ const Home = () => {
 
 
         {/* Column for  Right text */}
+        <
         <Col md={6}>
         <div className="text-box">
           <p className="home-description">

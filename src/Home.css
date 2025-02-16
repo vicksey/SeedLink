@@ -1,13 +1,27 @@
 .home-container {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers horizontally */
+    align-items: stretch; /* Stretch content */
+    justify-content: flex-start;
     
-    height: 100vh; /* Full height of viewport */
-    width: 100%; /* Ensures full width */
+    height: 100vh; /* Full height */
+    width: 100vw; /* Full width */
     text-align: center;
+    padding: 0 5vw; /* Adds some spacing from edges */
+    box-sizing: border-box;
 }
 
+/* .home-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    height: auto; 
+    min-height: 100vh; 
+    width: 100vw;
+    text-align: center;
+    padding-top: 20px; 
+    box-sizing: border-box;
+} */
 
 
 /* Make title bold and large */
