@@ -8,6 +8,7 @@ const MISTRAL_API_URL = 'https://api.mistral.ai/v1/chat/completions';
 const MISTRAL_API_KEY = process.env.MISTRAL_API_KEY;
 
 export async function getSeedRecommendation(location, range, seedInventory, month, year) {
+    console.log(location, range);
     console.log(`Fetching climate report for ${location} over the past ${range} years...`);
     const report = await getAgriculturalReport(location, range);
 
@@ -20,9 +21,9 @@ export async function getSeedRecommendation(location, range, seedInventory, mont
 
     console.log("Climate report retrieved! Analyzing with Mistral AI...");
 
-    const prompt = `Look into the seeds and what plants they grow into in which climates and regions around the world from our inventory ${JSON.stringify(seedInventory)}. 
+    const prompt = `Look into the seeds and what plants they grow into in which climates and regions around the world from our endangered species inventory ${JSON.stringify(seedInventory)}. 
     Using our report on the climate agricultural report from ${location}, ${report}, 
-    what is are the top 5 best seed to plant in ${location} in ${month}, ${year} to most benefit society and the earth in ${location}?`;
+    what is are the top 5 best seed to plant in ${location} in ${month}, ${year} to most benefit society and the earth in ${location} from our inventory ${JSON.stringify(seedInventory)}?`;
 
     const options = {
         method: 'POST',

@@ -7,7 +7,8 @@ const PERPLEXITY_API_URL = 'https://api.perplexity.ai/chat/completions';
 const API_KEY = process.env.PERPLEXITY_API_KEY;
 
 async function getAgriculturalReport(location, range) {
-    const prompt = `Give me a highly detailed report of ${location}'s agricultural climate and natural crops so that it can be analyzed for future growth efforts in the last ${range} years.`;
+    const prompt = `Give me a highly detailed report of ${location}'s agricultural climate and crops, both critically endangered and native, 
+    that it can be analyzed for future growth efforts in the last ${range} years.`;
 
     const options = {
         method: 'POST',
@@ -29,6 +30,7 @@ async function getAgriculturalReport(location, range) {
     };
 
     try {
+        console.log(`Researching agriculture in ${location} over the past ${range} years...`);
         const response = await fetch(PERPLEXITY_API_URL, options);
         const data = await response.json();
 
