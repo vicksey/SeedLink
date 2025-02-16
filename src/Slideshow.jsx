@@ -4,19 +4,18 @@ import "./Slideshow.css";
 import Map from "./Map";
 
 // Import images
-import img1 from "./assets/red.png";
-import img2 from "./assets/green.png";
-import img4 from "./assets/green.png";
+
+
+
+const GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1aRUiythd6eB2tA0bb07P-hqb6cDPvIa-PEqZ7uzmOiA/edit?usp=sharing";
+
+
 
 const Slideshow = ({ selectedCity }) => {
   return (
     <Carousel className="slideshow-container">
-      <Carousel.Item>
-        <img className="d-block w-100" src={img1} alt="First slide" />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" src={img2} alt="Second slide" />
-      </Carousel.Item>
+      
+      
 
       {/* Third slide with Google Maps */}
       <Carousel.Item>
@@ -26,8 +25,17 @@ const Slideshow = ({ selectedCity }) => {
       </Carousel.Item>
 
       <Carousel.Item>
-        <img className="d-block w-100" src={img4} alt="Fourth slide" />
+        <div className="google-sheet-slide">
+          <iframe
+            src={GOOGLE_SHEET_URL}
+            width="100%"
+            height="400px"
+            style={{ border: "none" }}
+            title="Google Sheets"
+          ></iframe>
+        </div>
       </Carousel.Item>
+
     </Carousel>
   );
 };
