@@ -46,8 +46,9 @@ const Home = () => {
         </Row>
       </Container>
 
+
       {/* Image & Text Row */}
-      <Row className="align-items-center mt-4">
+      <Row className="d-flex  justify-content-center mt-4">
         {/* Column for Images on Left */}
         <Col md={6}>
           <Container className="image-container">
@@ -65,16 +66,22 @@ const Home = () => {
             </Row>
           </Container>
         </Col>
+ {/* Column for Images on Left */}
+
 
         {/* Column for  Right text */}
-        <Col md={6} className="text-container">
+        <Col md={6}>
+        <div className="text-box">
           <p className="home-description">
             Do you want to save the world?
             Welcome to SeedLink!  Here, you'll be one step closer to preventing plant extinction.  
             Join us in making a difference!
           </p>
+ </div>
         </Col>
       </Row>
+{/* Image & Text Row */}
+
     </Container>
 
 
