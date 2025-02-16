@@ -3,7 +3,7 @@
 import "./Dashboard.css";
 import Slideshow from "./Slideshow"; 
 
- const API_BASE_URL = "http://localhost:5000";
+ const API_BASE_URL = "http://localhost:4000";
 
   const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
   const months = [
@@ -83,9 +83,6 @@ import Slideshow from "./Slideshow";
     return (
       <div className="dashboard-container">
         <h1 className="dashboard-title">Search Dashboard</h1>
-  return (
-    <div className="dashboard-container">
-      <h1 className="dashboard-title">User Dashboard</h1>
 
         <div className="input-group">
           <label htmlFor="month" className="input-label">Select Month:</label>
@@ -160,8 +157,8 @@ import Slideshow from "./Slideshow";
             <pre>{analysis}</pre>
           </div>
         )}
-      </div>
-    );
+     
+    
   
       {submittedData && (
         <div className="results">
