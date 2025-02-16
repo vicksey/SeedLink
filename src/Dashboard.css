@@ -1,8 +1,11 @@
+/* General Page Styling */
 body {
-    background-color: #cdbba3; /* A light greenish color */
+    background-color: #cdbba3; /* Light earthy tone */
     margin: 0;
     padding: 0; 
 }
+
+/* Container Styling */
 .dashboard-container {
     padding: 20px;
     max-width: 60%;
@@ -11,68 +14,186 @@ body {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 0px solid #A2C78C; /* Light green border */
-  }
-  
-  /* Media query for small to medium screens */
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
     .dashboard-container {
-        max-width: 90%; /* Adjust to 90% on small to medium screens */
+        max-width: 90%; /* Adjust width for medium screens */
     }
 }
 
-/* Media query for very small screens */
 @media (max-width: 480px) {
     .dashboard-container {
-        max-width: 90%; /* Ensure it doesn't exceed 90% on very small screens */
+        max-width: 90%; /* Ensure it doesn't exceed 90% for mobile */
     }
 }
 
-  .dashboard-title {
+/* Title Styling */
+.dashboard-title {
     text-align: center;
     font-size: 2rem;
-    color: #3A7A3A; /* Dark green for the title */
+    color: #3A7A3A; /* Dark green */
     margin-bottom: 20px;
-  }
-  
-  .input-group {
+}
+
+/* Form Group Styling */
+.input-group {
     margin-bottom: 20px;
-  }
-  
-  .input-label {
+}
+
+.input-label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #2D4739; /* Dark green text for labels */
-  }
-  
-  .input-field {
+    color: #2D4739; /* Dark green */
+}
+
+.input-field {
     width: 100%;
     padding: 10px;
     border: 1px solid #8B5E3C; /* Brown border */
     border-radius: 5px;
     font-size: 1rem;
     background-color: #FFFFFF; /* White input background */
-  }
-  
-  .search-button {
+}
+
+/* Search Button */
+.search-button {
     width: 100%;
     padding: 10px;
-    background-color: #3A7A3A; /* Dark green button */
-    color: #FFFFFF; /* White text */
+    background-color: #3A7A3A; /* Dark green */
+    color: #FFFFFF;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .search-button:hover {
+}
+
+.search-button:hover {
     background-color: #2D4739; /* Darker green on hover */
-  }
-  
-  .result {
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #D9534F;
+    background: #f9d6d5;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ✅ Enhanced Agricultural Report & AI Seed Recommendation Styling */
+.report-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
     margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #3A7A3A; /* Dark green left border */
+}
+
+.section-title {
+    color: #3A7A3A;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Formatted Report Text */
+.formatted-report {
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #2D4739;
+    padding: 10px;
+}
+
+/* Headings for Structured Text */
+.formatted-report h2 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    color: #3A7A3A;
+    border-bottom: 2px solid #A2C78C;
+    padding-bottom: 5px;
+}
+
+.formatted-report h3 {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    color: #4A5A3A;
+}
+
+.formatted-report h4 {
+    font-size: 1.1rem;
+    margin-top: 8px;
+    color: #5A7A5A;
+}
+
+/* Styled Paragraphs */
+.formatted-report p {
+    margin-bottom: 10px;
+}
+
+/* Styled Lists */
+.formatted-report ul {
+    margin-left: 20px;
+    padding-left: 20px;
+}
+
+.formatted-report li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+
+/* Ensure Reports Don't Overflow */
+.formatted-report pre {
+    background: #F5F5F5;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap; /* Ensures text wraps */
+    word-wrap: break-word;
+}
+
+/* ✅ SlideShow Styling */
+.slideshow-container {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ✅ Result Section */
+.results {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border-left: 5px solid #3A7A3A;
+}
+
+.results h2 {
+    color: #3A7A3A;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.results p {
+    font-size: 1rem;
+    color: #2D4739;
+    font-weight: bold;
+}
+
+/* ✅ Animated Loading Indicator */
+@keyframes loadingAnimation {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+.loading {
+    text-align: center;
     font-size: 1.2rem;
-    color: #2D4739; /* Dark green for results text */
-  }
-  
+    color: #3A7A3A;
+    animation: loadingAnimation 1.5s infinite;
+}
