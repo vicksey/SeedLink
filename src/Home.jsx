@@ -1,85 +1,10 @@
-// import { useEffect } from "react";
-// import "./Home.css"; 
-
-
-// const Home = () => {
-//   // Change the browser tab title
-//     useEffect(() => {
-//     document.title = "SeedLink - Home";
-// }, []);
-
-//     return (
-//     <div id="tile"style={{ textAlign: "top"}}>
-//         <h1>SeedLink</h1>
-//         <p>Help save endangered plants by planting seeds in your local area.</p>
-//     </div>
-// );
-// };
-
-// export default Home;
-
-
-
-
-
-
-
-
-
-
-// import { useEffect } from "react";
-// import "./Home.css";  
-
-
-// import img1 from "./assets/check_name_1.jpg";
-// import img2 from "../assets/images/image2.jpg";
-// import img3 from "../assets/images/image3.jpg";
-// import img4 from "../assets/images/image4.jpg";
-
-
-
-// const Home = () => {
-//   useEffect(() => {
-//     document.title = "SeedLink - Home";
-//   }, []);
-
-//   return (
-//     <div className="home-container">
-//       <h1 className="home-title">SeedLink</h1>
-//       <p className="home-description">
-//         Help save endangered plants by planting seeds in your local area.
-//       </p>
-
-
-//       <h1 class="text-3xl font-bold underline">
-//     Hello world!
-//   </h1>
-
-//       <div className="left-top-corner">Hello</div>
-//     </div>
-
-
-
-
-
-
-//   );
-// };
-
-// export default Home;
-
-
-
-
-
-
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
-import "./Home.css";  
+import "./Home.css";
+import Banner from "./Banner";
 
-
-// Import images
+// images
 import img1 from "./assets/check_name_1.jpg";
 import img2 from "./assets/flower_red.jpg";
 import img3 from "./assets/grays_lily.jpg";
@@ -90,12 +15,12 @@ const images = [img1, img2, img3, img4];
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
 
-  // when i used chat it recomeded this effect ig
+  // Update document title
   useEffect(() => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // fade in
+  // Handle fade-in effect for images
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -105,27 +30,40 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
-      {/* text area */}
-      <div className="text-container">
-        <h1 className="home-title">SeedLink</h1>
-        <p className="home-description">
-          Help save endangered plants by planting seeds in your local area.
-        </p>
+    <>
+      {/* First container with the background color #104030 */}
+      <div className="full-screen-container">
+        <Container fluid className="image-container">
+
+          <Row className="image-grid justify-content-center">
+            {images.map((img, index) => (
+              <Col xs={6} sm={4} md={3} lg={3} key={index} className="p-1 d-flex justify-content-center">
+                <Image
+                  src={img}
+                  alt={`Plant ${index + 1}`}
+                  className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
+                  rounded
+                />
+              </Col>
+            ))}
+          </Row>
+          {/* Title and subtitle inside the green container */}
+          <Row className="justify-content-center text-center">
+            <Col xs={12} className="text-center">
+              <h1 className="home-title">SeedLink</h1>
+              <p className="home-subtitle">
+                Do you want to save the world? Welcome to SeedLink! Here, you'll be one step closer to preventing plant extinction. Join us in making a difference!
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </div>
 
-      {/* tyried to align images*/}
-      <div className="image-grid">
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Plant ${index + 1}`}
-            className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
-          />
-        ))}
+      {/* Second container with white background */}
+      <div className="second-container">
+        <Banner />
       </div>
-    </div>
+    </>
   );
 };
 
