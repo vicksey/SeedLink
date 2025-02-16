@@ -1,20 +1,19 @@
-import { useState, useEffect } from "react";
-import { useGoogleLogin, GoogleLogin, googleLogout } from "@react-oauth/google";
+import { useState, useEffect, useContext } from "react";
+import { useGoogleLogin, googleLogout } from "@react-oauth/google";
 import axios from "axios";
+import { UserContext } from "./context/userContext.jsx"; // Adjust the path as needed
 
 const Login = () => {
-  console.log("Login component mounted");
-
-  const [user, setUser] = useState(null);
+  const { setUser } = useContext(UserContext); // Access the context
   const [profile, setProfile] = useState(null);
 
   const login = useGoogleLogin({
-    flow: "implicit",  // Optional: Use implicit flow for client-side login
-    ux_mode: "redirect", 
+    flow: "implicit",
+    ux_mode: "redirect",
     redirect_uri: "http://localhost:5173/login",
     onSuccess: (response) => {
       console.log("✅ Google login success:", response);
-      setUser(response);
+      fetchProfile(response.access_token);
     },
     onError: (error) => console.error("❌ Google Login Failed:", error),
   });
@@ -23,31 +22,31 @@ const Login = () => {
     login();
   }, []);
 
-  useEffect(() => {
-    if (user && user.access_token) {
-      axios
-        .get("https://www.googleapis.com/oauth2/v1/userinfo", {
-          headers: {
-            Authorization: `Bearer ${user.access_token}`,
-            Accept: "application/json",
-          },
-        })
-        .then((res) => {
-          setProfile(res.data);
-        })
-        .catch((err) => console.error("Error fetching user profile:", err));
-    }
-  }, [user]);
+  const fetchProfile = (accessToken) => {
+    axios
+      .get("https://www.googleapis.com/oauth2/v1/userinfo", {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          Accept: "application/json",
+        },
+      })
+      .then((res) => {
+        setProfile(res.data);
+        setUser(res.data); // Save user data in context
+      })
+      .catch((err) => console.error("Error fetching user profile:", err));
+  };
 
   const logOut = () => {
     googleLogout();
     setProfile(null);
+    setUser(null); // Clear user data from context
   };
 
   return (
     <div className="login-container">
       {!profile ? (
-        <h2>Redirecting to Google Login...</h2> // ✅ No manual login button
+        <h2>Redirecting to Google Login...</h2>
       ) : (
         <div className="profile">
           <img src={profile.picture} alt="User Profile" />
