@@ -1,17 +1,36 @@
+body {
+    background-color: #cdbba3; /* A light greenish color */
+    margin: 0;
+    padding: 0; 
+}
 .dashboard-container {
     padding: 20px;
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #f9f9f9;
+    max-width: 60%;
+    margin: 40px auto;
+    background-color: #F9F9F9; /* Light background for the container */
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 0px solid #A2C78C; /* Light green border */
   }
   
+  /* Media query for small to medium screens */
+@media (max-width: 768px) {
+    .dashboard-container {
+        max-width: 90%; /* Adjust to 90% on small to medium screens */
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    .dashboard-container {
+        max-width: 90%; /* Ensure it doesn't exceed 90% on very small screens */
+    }
+}
+
   .dashboard-title {
     text-align: center;
     font-size: 2rem;
-    color: #333;
+    color: #3A7A3A; /* Dark green for the title */
     margin-bottom: 20px;
   }
   
@@ -23,34 +42,37 @@
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #555;
+    color: #2D4739; /* Dark green text for labels */
   }
   
   .input-field {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #8B5E3C; /* Brown border */
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #FFFFFF; /* White input background */
   }
   
-  .dropdown {
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    list-style: none;
-    padding: 0;
-  }
-  
-  .dropdown-item {
+  .search-button {
+    width: 100%;
     padding: 10px;
+    background-color: #3A7A3A; /* Dark green button */
+    color: #FFFFFF; /* White text */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
-    color: #333;
+    transition: background-color 0.3s ease;
   }
   
-  .dropdown-item:hover {
-    background-color: #f0f0f0;
+  .search-button:hover {
+    background-color: #2D4739; /* Darker green on hover */
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #2D4739; /* Dark green for results text */
   }
   

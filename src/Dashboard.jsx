@@ -38,7 +38,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Search Dashboard</h1>
+      <h1 className="dashboard-title">User Dashboard</h1>
 
       <div className="input-group">
         <label htmlFor="month" className="input-label">Select Month:</label>
@@ -89,7 +89,7 @@ const Dashboard = () => {
 
       {submittedData && (
         <div className="results">
-          <h2>Search Results:</h2>
+          <h2>User Input Results:</h2>
           <p>Month: {submittedData.month}</p>
           <p>Day: {submittedData.day}</p>
           <p>City: {submittedData.city}</p>
