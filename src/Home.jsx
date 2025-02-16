@@ -64,13 +64,17 @@ const Home = () => {
         <div className="text-columns">
           <div className="column">
             <p className="column-text">
-              This is the first paragraph. It explains something interesting about your service or product.
+            <div className='mini-text'>
+            We analyze local agricultural conditions, including climate, soil quality, and historical crop success, to recommend the best seeds for your area. By leveraging AI-driven insights, we ensure that each seed selection is optimized for growth in your specific environment, increasing the chances of a successful and sustainable harvest.
+                 </div>
             </p>
             <button className="column-button">Learn More</button>
           </div>
           <div className="column">
             <p className="column-text">
-              This is the second paragraph. It provides more details or a call to action.
+              <div className='mini-text'>
+              Beyond just planting, SeedLink encourages community engagement by allowing users to share updates on their crops, fostering a network of support and knowledge. Additionally, financial incentives reward users for successfully growing and maintaining plants, helping to create a more sustainable and environmentally conscious future.
+                      </div>
             </p>
             <button className="column-button">Get Started</button>
           </div>

@@ -138,3 +138,8 @@ html, body {
     object-fit: contain;       /* Ensures the aspect ratio is maintained */
     padding-bottom: 0;
 }
+
+
+.mini-para{
+    font-size: 1.5rem;
+}
