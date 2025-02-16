@@ -4,7 +4,7 @@ import Slideshow from "./Slideshow";
 
 const API_BASE_URL = "http://localhost:4000";
 
-const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
+const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Austin", "Dallas"];
 const months = [
   "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 ];

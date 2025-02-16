@@ -19,6 +19,8 @@ const cityCoordinates = {
   "Chicago": { lat: 41.8781, lng: -87.6298 },
   "Houston": { lat: 29.7604, lng: -95.3698 },
   "Phoenix": { lat: 33.4484, lng: -112.074 },
+  "Austin": { lat: 30.2672, lng: 97.7431 },
+  "Dallas": { lat: 32.7767, lng: -96.7970 },
 };
 
 const Map = ({ selectedCity }) => {

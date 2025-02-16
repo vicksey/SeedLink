@@ -22,6 +22,7 @@ const Navbar = () => {
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
+        <li><Link to="/upload">Upload</Link></li>
         <li><Link to="/community">Community</Link></li>
         <li><Link to="/login" className="login-btn">Login</Link></li>
       </ul>
