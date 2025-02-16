@@ -96,7 +96,7 @@ const Dashboard = () => {
           <p>City: {submittedData.city}</p>
         </div>
       )}
-     <Slideshow />
+    <Slideshow selectedCity={city} />
     </div>
   );
 };
