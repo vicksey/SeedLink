@@ -1,29 +1,35 @@
 /* Home.css */
-.home-container {
-    min-height: 100vh;
+.full-screen-container {
     background-color: #104030;
-    transition: background-color 0.3s ease;
-  }
-  
-  .home-container.scrolled {
-    background-color: white;
-  }
-  
-  .title {
-    padding-top: 100px;
+    min-height: 100vh;  /* Make the container take the full height of the screen */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Align items to the top */
+    flex-direction: column;  /* Add flex-direction column to stack title, subtitle, and images vertically */
+    text-align: center;  /* Center text horizontally */
+    padding-top: 100px;  /* Keep some padding to move title down */
   }
   
   .home-title {
     color: white;
     font-size: 3rem;
+    margin-bottom: 10px; /* Space between title and subtitle */
   }
   
-  .home-container.scrolled .home-title {
-    color: #103040;
+  .home-subtitle {
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 20px; /* Reduced space between subtitle and images */
   }
   
   .image-container {
-    margin-top: 20px;
+    margin-top: 0px; /* Remove margin-top to shift images upwards */
+  }
+  
+  .image-grid {
+    display: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .image {
@@ -37,16 +43,9 @@
     opacity: 1;
   }
   
-  .text-box {
-    margin-top: 20px;
-  }
-  
-  .home-description {
-    color: white;
-    font-size: 1.5rem;
-  }
-  
-  .home-container.scrolled .home-description {
-    color: #103040;
+  /* Second container with white background */
+  .second-container {
+    background-color: white;
+    padding: 50px 0;
   }
   
