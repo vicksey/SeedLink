@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
 import "./Home.css";  
+import Banner from "./Banner"; 
 
 // Import images
 import img1 from "./assets/check_name_1.jpg";
@@ -19,7 +20,7 @@ const Home = () => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // Fade in
+  // Fade-in Effect
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -29,46 +30,53 @@ const Home = () => {
   }, []);
 
   return (
+
+    <div>
     <Container className="home-container">
-
-
-<Container className="title">
-  <Row>
-<h1 className="home-title">SeedLink</h1></Row>
-
-</Container>
-
-      {/* text */}
-      <div className="text-container">
-     
-        <p className="home-description">
-          Help save endangered plants by planting seeds in your local area.
-        </p>
-      </div>
-
-
-
-
-      {/* image  */}
-      <Container className="image-container">
-        <Row className="image-grid">
-          {images.map((img, index) => (
-            <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
-              <Image
-                src={img}
-                alt={`Plant ${index + 1}`}
-                className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
-                rounded
-              />
-            </Col>
-          ))}
+      {/* ✅ Title Section */}
+      <Container className="title">
+        <Row className="justify-content-center">
+          <Col md={8} className="text-center">
+            <h1 className="home-title">SeedLink</h1>
+          </Col>
         </Row>
       </Container>
 
+      {/* ✅ Image & Text Row */}
+      <Row className="align-items-center mt-4">
+        {/* ✅ Column for Images (Left) */}
+        <Col md={6}>
+          <Container className="image-container">
+            <Row className="image-grid">
+              {images.map((img, index) => (
+                <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
+                  <Image
+                    src={img}
+                    alt={`Plant ${index + 1}`}
+                    className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
+                    rounded
+                  />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </Col>
 
-
-
+        {/* ✅ Column for Text (Right) */}
+        <Col md={6} className="text-container">
+          <p className="home-description">
+            🌿 **Do you want to save the world?**  
+            Welcome to **SeedLink**! 🌱 Here, you'll be one step closer to preventing plant extinction.  
+            Join us in making a difference!
+          </p>
+        </Col>
+      </Row>
     </Container>
+
+
+      <Banner />
+      
+</div>
   );
 };
 
