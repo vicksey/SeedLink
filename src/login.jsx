@@ -2,15 +2,18 @@ import { useState, useEffect, useContext } from "react";
 import { useGoogleLogin, googleLogout } from "@react-oauth/google";
 import axios from "axios";
 import { UserContext } from "./context/userContext.jsx"; // Adjust the path as needed
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { setUser } = useContext(UserContext); // Access the context
   const [profile, setProfile] = useState(null);
 
+  const navigate = useNavigate();
+
   const login = useGoogleLogin({
     flow: "implicit",
     ux_mode: "redirect",
-    redirect_uri: "http://localhost:5173/login",
+    redirect_uri: "http://localhost:5173/dashboard",
     onSuccess: (response) => {
       console.log("✅ Google login success:", response);
       fetchProfile(response.access_token);
@@ -33,6 +36,7 @@ const Login = () => {
       .then((res) => {
         setProfile(res.data);
         setUser(res.data); // Save user data in context
+        navigate("/dashboard");
       })
       .catch((err) => console.error("Error fetching user profile:", err));
   };
