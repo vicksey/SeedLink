@@ -1,7 +1,7 @@
 .community-container {
     padding: 20px;
     max-width: 60%;
-    margin: 40px auto;
+    margin: 130px auto;
     font-family: Arial, sans-serif;
     background-color: #F9F9F9;
     border-radius: 10px;
@@ -29,6 +29,7 @@
     font-size: 2rem;
     color: #104030; /* Deep green */
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .updates-list {

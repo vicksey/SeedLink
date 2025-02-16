@@ -3,7 +3,6 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
 import "./Home.css";  
 
-
 import banner1 from "./assets/tree_placehooer.png";
 import banner2 from "./assets/images.png";
 import banner3 from "./assets/hand_heart.jpg";

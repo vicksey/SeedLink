@@ -1,21 +1,36 @@
 /* Navbar Styles */
 .navbar {
+    position: fixed !important; /* Fixes navbar to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #2C5F2D;
+    z-index: 1000; /* Ensures the navbar stays above content */
+    height: 80px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Default (Transparent) Navbar */
+.navbar.default {
+    background-color: #104030; /* Transparent background */
     color: white;
 }
-/* past color #4CAF50 */
 
-
-
+/* Scrolled Navbar */
+.navbar.scrolled {
+    background-color: white; /* White background */
+    color: #104030;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
 
 /* Logo */
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
+    padding-left:20px;
 }
 
 /* Navigation Links */
@@ -23,35 +38,53 @@
     list-style: none;
     display: flex;
     gap: 20px;
-}
-
-.nav-links li {
-    display: inline;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: white;
     font-size: 1.1rem;
+    transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-    text-decoration: underline;
+/* Default Navbar Link Colors */
+.navbar.default .nav-links a {
+    color: white;
+}
+
+/* Scrolled Navbar Link Colors */
+.navbar.scrolled .nav-links a {
+    color: #104030;
 }
 
 /* Login Button */
-
-
 .login-btn {
     padding: 8px 15px;
     border-radius: 5px;
-    background-color: #2f3b47;
-    color: #2C5F2D;
     font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 20px;
+
 }
 
+.navbar.default .login-btn {
+    color: #ffffff;
+    background-color: #357226;
+    
+}
 
-/* not quite a good color will change  */
-.login-btn:hover {
-    background-color: #97ad4d;
+.navbar.scrolled .login-btn {
+    color: #ffffff;
+    background-color: #6d7a6a;
+}
+
+/* Content Padding */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    padding-top: 80px; /* Ensures content doesn't overlap navbar */
 }

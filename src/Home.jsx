@@ -3,10 +3,6 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
 import "./Home.css";  
 import Banner from "./Banner"; 
-import Slideshow from "./Slideshow"; 
-
-
-
 
 // images
 import img1 from "./assets/check_name_1.jpg";
@@ -18,13 +14,14 @@ const images = [img1, img2, img3, img4];
 
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  // not sure why but it recommended update title
+  // Update document title
   useEffect(() => {
     document.title = "SeedLink - Home";
   }, []);
 
-  // Fade-in
+  // Handle fade-in effect for images
   useEffect(() => {
     images.forEach((_, index) => {
       setTimeout(() => {
@@ -33,11 +30,20 @@ const Home = () => {
     });
   }, []);
 
-  return (
+  // Listen for scroll events
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    <div>
-    <Container className="home-container">
-      {/* title*/}
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <div className={`home-container ${isScrolled ? "scrolled" : ""}`}>
       <Container className="title">
         <Row className="justify-content-center">
           <Col md={8} className="text-center">
@@ -47,8 +53,8 @@ const Home = () => {
       </Container>
 
       {/* Image & Text Row */}
-      <Row className="d-flex  justify-content-center mt-4">
-        {/* Column for Images on Left */}
+      <Row className="d-flex justify-content-center mt-4">
+        {/* Column for Images */}
         <Col md={6}>
           <Container className="image-container">
             <Row className="image-grid">
@@ -65,32 +71,21 @@ const Home = () => {
             </Row>
           </Container>
         </Col>
- {/* Column for Images on Left */}
 
-
-        {/* Column for  Right text */}
-      
+        {/* Column for Text */}
         <Col md={6}>
-        <div className="text-box">
-          <p className="home-description">
-            Do you want to save the world?
-            Welcome to SeedLink!  Here, you'll be one step closer to preventing plant extinction.  
-            Join us in making a difference!
-          </p>
- </div>
+          <div className="text-box">
+            <p className="home-description">
+              Do you want to save the world?
+              Welcome to SeedLink! Here, you'll be one step closer to preventing plant extinction.  
+              Join us in making a difference!
+            </p>
+          </div>
         </Col>
       </Row>
-{/* Image & Text Row */}
-
-    </Container>
-
 
       <Banner />
-    
-  
-    <Slideshow />
-  
-</div>
+    </div>
   );
 };
 

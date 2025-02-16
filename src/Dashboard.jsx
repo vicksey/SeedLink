@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
+import Slideshow from "./Slideshow"; 
 
 const cities = ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix"];
 const months = [
@@ -95,6 +96,7 @@ const Dashboard = () => {
           <p>City: {submittedData.city}</p>
         </div>
       )}
+     <Slideshow />
     </div>
   );
 };
