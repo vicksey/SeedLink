@@ -69,7 +69,7 @@ const Home = () => {
 
 
         {/* Column for  Right text */}
-        <
+      
         <Col md={6}>
         <div className="text-box">
           <p className="home-description">
