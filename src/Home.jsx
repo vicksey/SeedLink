@@ -1,8 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 import React, { useState, useEffect } from "react";
-import "./Home.css";  
-import Banner from "./Banner"; 
+import "./Home.css";
+import Banner from "./Banner";
 
 // images
 import img1 from "./assets/check_name_1.jpg";
@@ -14,7 +14,6 @@ const images = [img1, img2, img3, img4];
 
 const Home = () => {
   const [visibleImages, setVisibleImages] = useState([]);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   // Update document title
   useEffect(() => {
@@ -30,62 +29,41 @@ const Home = () => {
     });
   }, []);
 
-  // Listen for scroll events
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <div className={`home-container ${isScrolled ? "scrolled" : ""}`}>
-      <Container className="title">
-        <Row className="justify-content-center">
-          <Col md={8} className="text-center">
-            <h1 className="home-title">SeedLink</h1>
-          </Col>
-        </Row>
-      </Container>
+    <>
+      {/* First container with the background color #104030 */}
+      <div className="full-screen-container">
+        <Container fluid className="image-container">
 
-      {/* Image & Text Row */}
-      <Row className="d-flex justify-content-center mt-4">
-        {/* Column for Images */}
-        <Col md={6}>
-          <Container className="image-container">
-            <Row className="image-grid">
-              {images.map((img, index) => (
-                <Col xs={6} key={index} className="p-1 d-flex justify-content-center">
-                  <Image
-                    src={img}
-                    alt={`Plant ${index + 1}`}
-                    className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
-                    rounded
-                  />
-                </Col>
-              ))}
-            </Row>
-          </Container>
-        </Col>
+          <Row className="image-grid justify-content-center">
+            {images.map((img, index) => (
+              <Col xs={6} sm={4} md={3} lg={3} key={index} className="p-1 d-flex justify-content-center">
+                <Image
+                  src={img}
+                  alt={`Plant ${index + 1}`}
+                  className={`image ${visibleImages.includes(index) ? "visible" : ""}`}
+                  rounded
+                />
+              </Col>
+            ))}
+          </Row>
+          {/* Title and subtitle inside the green container */}
+          <Row className="justify-content-center text-center">
+            <Col xs={12} className="text-center">
+              <h1 className="home-title">SeedLink</h1>
+              <p className="home-subtitle">
+                Do you want to save the world? Welcome to SeedLink! Here, you'll be one step closer to preventing plant extinction. Join us in making a difference!
+              </p>
+            </Col>
+          </Row>
+        </Container>
+      </div>
 
-        {/* Column for Text */}
-        <Col md={6}>
-          <div className="text-box">
-            <p className="home-description">
-              Do you want to save the world?
-              Welcome to SeedLink! Here, you'll be one step closer to preventing plant extinction.  
-              Join us in making a difference!
-            </p>
-          </div>
-        </Col>
-      </Row>
-
-      <Banner />
-    </div>
+      {/* Second container with white background */}
+      <div className="second-container">
+        <Banner />
+      </div>
+    </>
   );
 };
 
