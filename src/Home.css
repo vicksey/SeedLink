@@ -1,51 +1,140 @@
-/* Home.css */
+/* Root styles to prevent overflow */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling for the whole document */
+    width: 100%; /* Ensure body spans the full width of the viewport */
+}
+
+/* Full-screen container */
 .full-screen-container {
     background-color: #104030;
-    min-height: 100vh;  /* Make the container take the full height of the screen */
-    display: flex;
+    min-height: 100vh; /* Full height of the screen */
+    width: 100vw; /* Full width of the viewport */
+    display: flex; /* Ensure flexbox is applied */
     justify-content: center;
-    align-items: flex-start;  /* Align items to the top */
-    flex-direction: column;  /* Add flex-direction column to stack title, subtitle, and images vertically */
-    text-align: center;  /* Center text horizontally */
-    padding-top: 100px;  /* Keep some padding to move title down */
-  }
-  
-  .home-title {
+    align-items: flex-start; /* Align items to the top */
+    flex-direction: column; /* Stack title, subtitle, and images vertically */
+    text-align: center; /* Center text horizontally */
+    padding-top: 100px; /* Padding to move title down */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+/* Title styles */
+.home-title {
     color: white;
-    font-size: 3rem;
-    margin-bottom: 10px; /* Space between title and subtitle */
-  }
-  
-  .home-subtitle {
+    font-size: 5rem;
+    margin-bottom: 20px; /* Space between title and subtitle */
+    margin-top: 30px; /* Space above the title */
+    font-family: 'Raleway', sans-serif; /* Raleway font for title */
+    font-weight: bold; /* Apply bold weight */
+    word-wrap: break-word; /* Break long words to fit */
+    overflow-wrap: break-word; /* Ensure wrapping in all cases */
+}
+
+/* Subtitle styles */
+.home-subtitle {
     color: white;
     font-size: 1.5rem;
     margin-bottom: 20px; /* Reduced space between subtitle and images */
-  }
-  
-  .image-container {
+    font-family: 'Quicksand', sans-serif; /* Example of an agricultural font */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Image container */
+.image-container {
     margin-top: 0px; /* Remove margin-top to shift images upwards */
-  }
-  
-  .image-grid {
-    display: flex-start;
-    flex-wrap: wrap;
+    width: 100%; /* Ensure image container spans the full width */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Image grid */
+.image-grid {
+    display: flex;
+    flex-wrap: nowrap; /* Allow wrapping if images don’t fit */
     justify-content: center;
-  }
-  
-  .image {
-    width: 100%;
+    width: 100%; /* Ensure the grid fits within the container */
+    box-sizing: border-box; /* Include padding in width calculation */
+    gap: 10px; /* Add some spacing between images */
+}
+
+/* Image styles */
+.image {
+    width: 100%; /* Ensure images do not overflow */
     height: auto;
+    max-width: 100%; /* Prevent images from exceeding the container width */
     opacity: 0;
     transition: opacity 1s ease;
-  }
-  
-  .image.visible {
+}
+
+.image.visible {
     opacity: 1;
-  }
-  
-  /* Second container with white background */
-  .second-container {
-    background-color: white;
+}
+
+/* Second container with white background */
+/* Second container with white background */
+.second-container {
+    background-color: #cdbba3; /* Background color */
     padding: 50px 0;
-  }
-  
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Container for the two columns */
+.text-columns {
+    display: flex;              /* Use flexbox to create two columns */
+    justify-content: space-between; /* Space out columns */
+    width: 90%;                  /* Ensure it doesn't touch the edges */
+    margin: 0 auto;              /* Center the content */
+}
+
+/* Each column */
+.column {
+    width: 48%; /* Each column takes up 48% of the container */
+    text-align: center; /* Center the text inside each column */
+}
+
+/* Column text style */
+.column-text {
+    font-size: 1.25rem; /* Adjust the text size */
+    color: #333; /* Adjust text color */
+    margin-bottom: 20px; /* Space between text and button */
+}
+
+/* Column button style */
+.column-button {
+    background-color: #104030; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 1rem; /* Adjust button font size */
+    transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.column-button:hover {
+    background-color: #86c6af; /* Change color on hover */
+}
+
+
+/* Banner container styles */
+.banner-container {
+    background-color: #ffffff;  /* Background color for the banner (you can customize it) */
+    display: flex;              /* Use flexbox for centering */
+    justify-content: center;    /* Center horizontally */
+    align-items: center;        /* Center vertically */
+    width: 100%;                /* Full width */
+    height: 300px;              /* Adjust the height of the banner as needed */
+    box-sizing: border-box;     /* Include padding in width/height calculation */
+}
+
+/* Banner logo image styles */
+.banner-logo {
+    max-width: 70%;             /* Limit the logo size to 80% of the container */
+    max-height: 70%;            /* Limit the logo size to 80% of the container */
+    object-fit: contain;       /* Ensures the aspect ratio is maintained */
+    padding-bottom: 0;
+}
