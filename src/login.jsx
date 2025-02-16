@@ -1,15 +1,27 @@
 import { useState, useEffect } from "react";
-import { useGoogleLogin, googleLogout } from "@react-oauth/google";
+import { useGoogleLogin, GoogleLogin, googleLogout } from "@react-oauth/google";
 import axios from "axios";
 
 const Login = () => {
-  const [user, setUser] = useState<any>(null);
-  const [profile, setProfile] = useState<any>(null);
+  console.log("Login component mounted");
+
+  const [user, setUser] = useState(null);
+  const [profile, setProfile] = useState(null);
 
   const login = useGoogleLogin({
-    onSuccess: (response) => setUser(response),
-    onError: (error) => console.error("Login Failed:", error),
+    flow: "implicit",  // Optional: Use implicit flow for client-side login
+    ux_mode: "redirect", 
+    redirect_uri: "http://localhost:5173/login",
+    onSuccess: (response) => {
+      console.log("✅ Google login success:", response);
+      setUser(response);
+    },
+    onError: (error) => console.error("❌ Google Login Failed:", error),
   });
+
+  useEffect(() => {
+    login();
+  }, []);
 
   useEffect(() => {
     if (user && user.access_token) {
@@ -34,11 +46,8 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <h2>Login with Google</h2>
       {!profile ? (
-        <button onClick={() => login()} className="google-login-btn">
-          Sign in with Google
-        </button>
+        <h2>Redirecting to Google Login...</h2> // ✅ No manual login button
       ) : (
         <div className="profile">
           <img src={profile.picture} alt="User Profile" />

@@ -7,7 +7,7 @@ import seedInventory from "./seedInventory.json" assert { type: "json" };
 
 dotenv.config();
 const app = express();
-const PORT = 5000;
+const PORT = 4000;
 
 app.use(cors()); // Allows the frontend to make requests to the backend
 app.use(express.json());
